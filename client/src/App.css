@@ -13,6 +13,20 @@
   }
 }
 
+/* NotFound.css */
+.not-found-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.not-found-image {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+}
+
+
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
