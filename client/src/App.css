@@ -13,48 +13,18 @@
   }
 }
 
-/* NotFound.css */
-.not-found-container {
-  text-align: center;
-  padding: 20px;
-}
-
-.not-found-image {
-  max-width: 100%;
-  height: auto;
-  margin-top: 20px;
-}
-
-
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.home .film {
+  flex-grow: 1;
+  margin: 20px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-#navbar{
-  font-size: 50px;
-}
-
-#reelReview{
-  font-size: 80px;
+.home .film img {
+  width: 250px;
+  height: 100;
 }
