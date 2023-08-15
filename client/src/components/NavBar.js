@@ -11,10 +11,10 @@ function NavBar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Link to="/superhero">Superhero</Link>
-            <Link to="/scifi">SciFi</Link>
-            <Link to="/drama">Drama</Link>
-            <Link to="/comedy">Comedy</Link>
+            <Nav.Link as={Link} to="/superhero">Superhero</Nav.Link>
+            <Nav.Link as={Link} to="/scifi">SciFi</Nav.Link>
+            <Nav.Link as={Link} to="/drama">Drama</Nav.Link>
+            <Nav.Link as={Link} to="/comedy">Comedy</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
