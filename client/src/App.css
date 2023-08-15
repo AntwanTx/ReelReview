@@ -28,3 +28,23 @@
   width: 250px;
   height: 100;
 }
+
+#navbar {
+  font-size: 40px;
+}
+#reelReview {
+  font-size: 60px;
+}
+
+.star-rating {
+  font-size: 24px;
+}
+
+.star {
+  cursor: pointer;
+  color: #ccc;
+}
+
+.selected {
+  color: gold;
+}

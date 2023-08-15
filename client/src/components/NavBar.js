@@ -8,7 +8,7 @@ function NavBar() {
     <Navbar expand="lg" className="bg-body-tertiary" id="navbar">
       <Container>
         <Navbar.Brand href="/">ReelReview</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle aria-controls="basic-navbar-nav" ></Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/superhero">Superhero</Nav.Link>
