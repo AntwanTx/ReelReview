@@ -5,7 +5,6 @@ import NavBar from "./NavBar";
 import barbie from "../movie-posters/barbie.jpg";
 import knives from "../movie-posters/knives-out.jpg";
 
-
 function Comedy() {
     return (
         <main className="comedy">
