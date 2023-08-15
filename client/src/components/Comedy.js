@@ -1,6 +1,6 @@
 // Content for Comedy
 import React from "react";
-import Navbar from 'Navbar';
+import NavBar from "./NavBar";
 
 import barbie from "../movie-posters/barbie.jpg";
 import knives from "../movie-posters/knives-out.jpg";
@@ -8,7 +8,8 @@ import knives from "../movie-posters/knives-out.jpg";
 
 function Comedy() {
     return (
-        <main className="home">
+        <main className="comedy">
+            <NavBar />
             <div className="film barbie">
                 <img src={barbie} alt="Poster for Barbie."></img>
                 <h3>Barbie</h3>

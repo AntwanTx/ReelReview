@@ -1,6 +1,6 @@
 // Content for Drama
 import React from "react";
-import Navbar from 'Navbar';
+import NavBar from "./NavBar";
 
 import parasite from "../movie-posters/parasite.jpg";
 import psycho from "../movie-posters/american-psycho.jpg";
@@ -8,7 +8,8 @@ import psycho from "../movie-posters/american-psycho.jpg";
 
 function Drama() {
     return (
-        <main className="home">
+        <main className="drama">
+            <NavBar />
             <div className="film parasite">
                 <img src={parasite} alt="Poster for Parasite."></img>
                 <h3>Parasite</h3>

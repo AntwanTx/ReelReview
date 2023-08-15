@@ -1,6 +1,7 @@
 // Content for Superhero
 import React from "react";
-import Navbar from 'Navbar';
+import NavBar from "./NavBar";
+
 
 import avengers from "../movie-posters/avengers.jpg";
 import batman from "../movie-posters/batman.jpg";
@@ -9,7 +10,8 @@ import spiderman from "../movie-posters/spiderman.jpg";
 
 function Superhero() {
     return (
-        <main className="home">
+        <main className="superhero">
+            <NavBar />
             <div className="film avengers">
                 <img src={avengers} alt="Poster for Avengers."></img>
                 <h3>Avengers</h3>
