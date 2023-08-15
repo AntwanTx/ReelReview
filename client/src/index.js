@@ -1,5 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
+
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -41,9 +42,7 @@ import { BrowserRouter } from 'react-router-dom';
 // this is the end of that code i just added
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+    <App />,
   document.getElementById('root')
 );
 
