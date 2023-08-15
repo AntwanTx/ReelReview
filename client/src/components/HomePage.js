@@ -9,11 +9,13 @@ import batman from "../movie-posters/batman.jpg";
 import spiderman from "../movie-posters/spiderman.jpg";
 import parasite from "../movie-posters/parasite.jpg";
 import psycho from "../movie-posters/american-psycho.jpg";
+import NavBar from "./NavBar";
 
 
 export default function HomePage(){
     return(
-    <>
+    <div>
+        <NavBar />
         <main className="home">
             <div className="film avengers">
             <img src={avengers} alt="Poster for Avengers."></img>
@@ -55,6 +57,6 @@ export default function HomePage(){
             <h3>American Psycho</h3>
             </div>
         </main>
-    </>
+    </div>
     );
 };
