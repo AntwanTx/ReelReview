@@ -1,3 +1,6 @@
+html {
+  box-sizing: border-box;
+}
 .grid-container {
   margin: 20px;
 }
@@ -32,20 +35,22 @@
   grid-template-columns: auto auto auto;
   flex-direction: row;
 }
+.movie .grid-item{
+  width: 100%;
+
+}
 .movie img {
-  width: 400px;
+  width: 500px;
 }
 .movie .review {
   border: solid 1px black;
 }
 .movie .movieinfo {
-  width: 300px;
   padding: 5px;
   text-align: center;
   border: solid 1px black;
 }
 .movie .review {
-  width: 300px;
   padding: 10px;
 }
 .movie .title, .username {
