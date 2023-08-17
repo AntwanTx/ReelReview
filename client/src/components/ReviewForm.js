@@ -22,30 +22,35 @@ const ReviewForm = ({ onSubmit, movieList }) => {
   };
 
   return (
-    <div>
+    <main className="reviewform">
       <NavBar />
+
       <h2>Write a Review</h2>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Name:</label>
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
+
+        <div className="formitem name">
+          <label>Name:</label><br></br>
+          <input placeholder="username" type="text" value={name} onChange={(e) => setName(e.target.value)} required />
         </div>
-        <div>
-          <label>Comment:</label>
-          <textarea value={comment} onChange={(e) => setComment(e.target.value)} required />
+
+        <div className="formitem comment">
+          <label>Comment:</label><br></br>
+          <textarea placeholder="Write your review here." value={comment} onChange={(e) => setComment(e.target.value)} required />
         </div>
-        <div>
-          <label>Select a Movie:</label>
+
+        <div className="formitem moviedropdown">
+          <label>Select a Movie:</label><br></br>
           <select value={selectedMovie} onChange={(e) => setSelectedMovie(e.target.value)}>
             <option value="">Select a movie</option>
             {movieList.map((movie, index) => (
               <option key={index} value={movie.title}>
                 {movie.title}
               </option>
-            ))}
+            ))};
           </select>
         </div>
-        <div>
+
+        <div className="formitem starrating">
           <label>Rating:</label>
           <div className="star-rating">
             {[1, 2, 3, 4, 5].map((value) => (
@@ -59,9 +64,11 @@ const ReviewForm = ({ onSubmit, movieList }) => {
             ))}
           </div>
         </div>
+
         <button type="submit">Submit Review</button>
+
       </form>
-    </div>
+    </main>
   );
 };
 
