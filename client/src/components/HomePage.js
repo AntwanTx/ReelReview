@@ -3,6 +3,16 @@ import React from "react";
 import NavBar from "./NavBar";
 import { Link } from 'react-router-dom';
 
+import avengers from "../movie-posters/avengers.jpg";
+import barbie from "../movie-posters/barbie.jpg";
+import knives from "../movie-posters/knives-out.jpg";
+import starwars from "../movie-posters/starwars.jpg";
+import batman from "../movie-posters/batman.jpg";
+import spiderman from "../movie-posters/spiderman.jpg";
+import parasite from "../movie-posters/parasite.jpg";
+import psycho from "../movie-posters/american-psycho.jpg";
+
+
 export default function HomePage(){
     return(
         <main className="home">

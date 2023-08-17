@@ -1,27 +1,20 @@
 import React, { useState, useEffect } from "react";
 import NavBar from "./NavBar";
 import { useParams } from "react-router-dom";
-import { getMovieById } from "../../../backend/data/moviedata";
+
 
 import barbie from "../movie-posters/barbie.jpg";
 
 export default function Movie(){
-    const { movieId } = useParams();
-    const [movieData, setMovieData] = useState(null);
+    const [moviedata] = useParams;
+    const [movies, setMovies] = useState([]);
 
     useEffect(() => {
-        const movie = getMovieById(movieId);
-
-        if(movie) {
-            setMovieData(movie);
-        } else {
-            console.error("Not found.")
-        }
-    }, [movieId]);
-
-    if (!movieData) {
-        return <div>Loading...</div>
-    }
+        fetch(".backend/moviedata")
+        .then(response => response.json())
+        .then(data => setMovies(data))
+        .catch(error => console.error("Error fetching data", error));
+    }, []);
 
     return (
         <main className="movie">
