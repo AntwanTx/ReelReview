@@ -8,7 +8,7 @@ import psycho from "../movie-posters/american-psycho.jpg";
 
 function Drama() {
     return (
-        <main className="drama">
+        <main className="home">
             <NavBar />
             <div className="film parasite">
                 <img src={parasite} alt="Poster for Parasite."></img>
