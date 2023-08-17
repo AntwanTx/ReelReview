@@ -1,7 +1,7 @@
-// ReviewList.js
+
 import React from 'react';
 
-const ReviewList = ({ reviews }) => {
+const ReviewList = ({ reviews, onDeleteReview }) => {
   return (
     <div>
       <h2>Reviews</h2>
@@ -10,7 +10,8 @@ const ReviewList = ({ reviews }) => {
           <li key={index}>
             <strong>{review.name}</strong>
             <p>{review.comment}</p>
-            <div>{"⭐".repeat(review.rating)}</div> {/* Star emojis */}
+            <div>{"⭐".repeat(review.rating)}</div>
+            <button onClick={() => onDeleteReview(index)}>Delete</button>
           </li>
         ))}
       </ul>
@@ -19,3 +20,4 @@ const ReviewList = ({ reviews }) => {
 };
 
 export default ReviewList;
+

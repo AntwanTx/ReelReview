@@ -21,6 +21,7 @@ export default function HomePage(){
             <div className="film avengers">
                 <img src={avengers} alt="Poster for Avengers."></img>
                 <Link to="/barbie"><h3>Avengers</h3></Link>
+                
             </div>
 
             <div className="film barbie">
