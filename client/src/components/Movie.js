@@ -1,9 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import NavBar from "./NavBar";
+import { useParams } from "react-router-dom";
+import { getMovieById } from "../../../backend/data/moviedata";
 
 import barbie from "../movie-posters/barbie.jpg";
 
 export default function Movie(){
+    const { movieId } = useParams();
+    const [movieData, setMovieData] = useState(null);
+
+    useEffect(() => {
+        const movie = getMovieById(movieId);
+
+        if(movie) {
+            setMovieData(movie);
+        } else {
+            console.error("Not found.")
+        }
+    }, [movieId]);
+
+    if (!movieData) {
+        return <div>Loading...</div>
+    }
+
     return (
         <main className="movie">
             <NavBar />
@@ -21,12 +40,16 @@ export default function Movie(){
                     </div>
                 </div>
                 <div className="grid-item col3">
-                    <p className="movieinfo title">Movie Title</p>
-                    <p className="movieinfo director">Director</p>
-                    <p className="movieinfo studio">Studio</p>
-                    <p className="movieinfo genre">Genre</p>
-                    <p className="movieinfo cast">Main Cast</p>
-                    <p className="movieinfo description">Description</p>
+                    {movies.map((movie, index) => (
+                        <div key={index}>
+                            <p className="movieinfo title">{movie.title}</p>
+                            <p className="movieinfo director">{movie.director}</p>
+                            <p className="movieinfo studio">{movie.studio}</p>
+                            <p className="movieinfo genre">{movie.genre}</p>
+                            <p className="movieinfo cast">{movie.cast}</p>
+                            <p className="movieinfo description">{movie.description}</p>
+                        </div>
+                ))}
                 </div>
             </div>
         </main>
