@@ -1,11 +1,43 @@
+/* =========== */
+/* Global */
+
 html {
   box-sizing: border-box;
+}
+main {
+  margin: 20px 30px
 }
 .grid-container {
   margin: 20px;
 }
-
+.brand {
+  font-size: 3.5em;
+  font-weight: bolder;
+}
+.link {
+  color: black;
+  text-decoration: none;
+}
+.link:hover {
+  color: red;
+}
 /* =========== */
+/* Navbar */
+nav {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+}
+.h1 {
+  font-size: 2em;
+}
+.navlinks .link {
+  list-style: none;
+  font-size: 1.5em;
+  margin: 0 20px 0 50px;
+}
+/* =========== */
+/* Home Page  */
 
 .home .grid-container {
   display: grid;
@@ -13,22 +45,40 @@ html {
   align-items: center;
   margin: 2em;
 }
+.homefilm {
+  margin: 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .home h3 {
   font-size: 1.4em;
   padding: 30px 5px;
-}
-.home a {
-  color: black;
-  text-decoration: none;
-}
-.home a:hover {
-  color: red;
 }
 .home img {
   width: 250px;
 }
 
-/* =========== */
+/* ===================== */
+/* Genre Pages for Films  */
+
+.genrepage {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+.genrefilm {
+  margin: 20px;;
+}
+.genrefilm img {
+  margin-bottom: 20px;
+  width: 300px;
+}
+
+
+/* ===================== */
+/* Read Page for Film  */
 
 .movie .grid-container {
   display: grid;
@@ -73,23 +123,47 @@ html {
   margin: 0 18px
 }
 
+/* ===================== */
+/* Review Form Page */
 
-#navbar {
-  font-size: 40px;
+form {
+  text-align: center;
 }
-#reelReview {
-  font-size: 60px;
+form label {
+  font-size: 1.5em;
+  margin-bottom: 15px;
 }
-
+.reviewform h2 {
+  text-align: center;
+  font-size: 3em;
+  margin: 20px 0;
+}
+textarea {
+  width: 600px;
+  height: 200px;
+}
+.formitem {
+  margin: 20px;
+}
 .star-rating {
   font-size: 24px;
 }
-
 .star {
   cursor: pointer;
   color: #ccc;
 }
-
 .selected {
   color: gold;
+}
+form button {
+  width: 300px;
+  height: 50px;
+  border: none;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  background-color: #424242;
+}
+form button:hover {
+  background-color: #47BB35;
 }

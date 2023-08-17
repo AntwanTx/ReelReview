@@ -1,26 +1,17 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-function NavBar() {
+export default function NavBar() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary" id="navbar">
-      <Container>
-        <Navbar.Brand href="/" id="reelReview">ReelReview</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" ></Navbar.Toggle>
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link as={Link} to="/superhero">Superhero</Nav.Link>
-            <Nav.Link as={Link} to="/scifi">SciFi</Nav.Link>
-            <Nav.Link as={Link} to="/drama">Drama</Nav.Link>
-            <Nav.Link as={Link} to="/comedy">Comedy</Nav.Link>
-            <Nav.Link as={Link} to="/SelectedMovie">Reviews</Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <nav>
+        <Link className="link brand" to="/">ReelReview</Link>
+          <div className="navlinks">
+            <Link className="link" to="/superhero">Superhero</Link>
+            <Link className="link" to="/scifi">SciFi</Link>
+            <Link className="link" to="/drama">Drama</Link>
+            <Link className="link" to="/comedy">Comedy</Link>
+            <Link className="link" to="/SelectedMovie">Write a Review!</Link>
+          </div>
+    </nav>
   );
-}
-
-export default NavBar;
+};

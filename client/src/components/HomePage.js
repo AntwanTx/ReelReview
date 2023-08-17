@@ -18,44 +18,44 @@ export default function HomePage(){
         <main className="home">
             <NavBar />
             <div className="grid-container">
-                    <div className="grid-item avengers">
+                    <div className="grid-item homefilm avengers">
                         <img src={avengers} alt="Poster for Avengers."></img>
-                        <Link to="/barbie"><h3>Avengers</h3></Link>
+                        <Link className="link" to="/avengers"><h3>Avengers</h3></Link>
                     </div>
 
-                    <div className="grid-item barbie">
+                    <div className="grid-item homefilm barbie">
                         <img src={barbie} alt="Poster for Barbie."></img>
-                        <Link to="/barbie"><h3>Barbie</h3></Link>
+                        <Link className="link" to="/barbie"><h3>Barbie</h3></Link>
                     </div>
 
-                    <div className="grid-item knives">
+                    <div className="grid-item homefilm knives">
                         <img src={knives} alt="Poster for Knives Out."></img>
-                        <Link to="/barbie"><h3>Knives Out</h3></Link>
+                        <Link className="link" to="/knivesout"><h3>Knives Out</h3></Link>
                     </div>
 
-                    <div className="grid-item starwars">
+                    <div className="grid-item homefilm starwars">
                         <img src={starwars} alt="Poster for Star Wars: A New Hope."></img>
-                        <Link to="/barbie"><h3>Star Wars: A New Hope</h3></Link>
+                        <Link className="link" to="/starwars"><h3>Star Wars: A New Hope</h3></Link>
                     </div>
 
-                    <div className="grid-item batman">
+                    <div className="grid-item homefilm batman">
                         <img src={batman} alt="Poster for Batman: The Dark Knight."></img>
-                        <Link to="/barbie"><h3>Batman: The Dark Knight</h3></Link>
+                        <Link className="link" to="/batman"><h3>Batman: The Dark Knight</h3></Link>
                     </div>
 
-                    <div className="grid-item spiderman">
+                    <div className="grid-item homefilm spiderman">
                         <img src={spiderman} alt="Poster for Spiderman: No Way Home."></img>
-                        <Link to="/barbie"><h3>Spiderman: No Way Home</h3></Link>
+                        <Link className="link" to="/spiderman"><h3>Spiderman: No Way Home</h3></Link>
                     </div>
 
-                    <div className="grid-item parasite">
-                        <img src={parasite}  alt="Poster for Parasite."></img>
-                        <Link to="/barbie"><h3>Parasite</h3></Link>
+                    <div className="grid-item homefilm parasite">
+                        <img src={parasite} alt="Poster for Parasite."></img>
+                        <Link className="link" to="/parasite"><h3>Parasite</h3></Link>
                     </div>
 
-                    <div className="grid-item psycho">
+                    <div className="grid-item homefilm psycho">
                         <img src={psycho} alt="Poster for American Psycho."></img>
-                        <Link to="/barbie"><h3>American Psycho</h3></Link>
+                        <Link className="link" to="/americanpsycho"><h3>American Psycho</h3></Link>
                 </div>
             </div>
         </main>
