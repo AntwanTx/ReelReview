@@ -7,6 +7,8 @@ import Superhero from "./components/Superhero";
 import SciFi from "./components/SciFi";
 import Drama from "./components/Drama";
 import Comedy from "./components/Comedy";
+import SelectedMovie from "./components/SelectedMovie";
+
 
 
 function App() {
@@ -20,6 +22,7 @@ function App() {
             <Route path="/drama" element={<Drama />} />
             <Route path="/comedy" element={<Comedy />} />
             <Route path="/barbie" element={<Movie />} />
+            <Route path="/SelectedMovie" element={<SelectedMovie />} />
       </Routes>
     </Router>
     </div>

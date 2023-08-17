@@ -7,7 +7,7 @@ function NavBar() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary" id="navbar">
       <Container>
-        <Navbar.Brand href="/">ReelReview</Navbar.Brand>
+        <Navbar.Brand href="/" id="reelReview">ReelReview</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" ></Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
@@ -15,6 +15,7 @@ function NavBar() {
             <Nav.Link as={Link} to="/scifi">SciFi</Nav.Link>
             <Nav.Link as={Link} to="/drama">Drama</Nav.Link>
             <Nav.Link as={Link} to="/comedy">Comedy</Nav.Link>
+            <Nav.Link as={Link} to="/SelectedMovie">Reviews</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -1,33 +1,30 @@
-
 import React, { useState } from 'react';
 import NavBar from './NavBar';
-import SelectedMovie from './SelectedMovie';
 
 
-const ReviewForm = ({ onSubmit, selectedMoviePicture }) => {
+const ReviewForm = ({ onSubmit, movieList }) => {
+  const [selectedMovie, setSelectedMovie] = useState(null);
   const [name, setName] = useState('');
   const [comment, setComment] = useState('');
   const [rating, setRating] = useState(0);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit({ name, comment, rating });
+    onSubmit({ name, comment, rating, selectedMovie });
+    setSelectedMovie(null);
     setName('');
     setComment('');
     setRating(0);
   };
 
-  const handleRatingClick = (selectedRating) => {
-    setRating(selectedRating);
+  const handleRatingChange = (newRating) => {
+    setRating(newRating);
   };
 
   return (
     <div>
-        <NavBar />
+      <NavBar />
       <h2>Write a Review</h2>
-      <div>
-        {selectedMoviePicture && <img src={selectedMoviePicture} alt="Selected Movie" />}
-      </div>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Name:</label>
@@ -38,13 +35,24 @@ const ReviewForm = ({ onSubmit, selectedMoviePicture }) => {
           <textarea value={comment} onChange={(e) => setComment(e.target.value)} required />
         </div>
         <div>
+          <label>Select a Movie:</label>
+          <select value={selectedMovie} onChange={(e) => setSelectedMovie(e.target.value)}>
+            <option value="">Select a movie</option>
+            {movieList.map((movie, index) => (
+              <option key={index} value={movie.title}>
+                {movie.title}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div>
           <label>Rating:</label>
           <div className="star-rating">
             {[1, 2, 3, 4, 5].map((value) => (
               <span
                 key={value}
                 className={`star ${value <= rating ? 'selected' : ''}`}
-                onClick={() => handleRatingClick(value)}
+                onClick={() => handleRatingChange(value)}
               >
                 ★
               </span>
