@@ -7,7 +7,7 @@ export default function Movie(){
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
-        async function fetchMovies(){
+        async function fetchMovies() {
             try {
                 const response = await fetch('/api/movies');
                 console.log('Response status:', response.status);
@@ -15,12 +15,13 @@ export default function Movie(){
                 console.log('Fetched data:', data);
                 setMovies(data);
             } catch (error) {
-                 console.error("Error fetching data", error)
+                console.error('Error fetching data', error);
             }
         }
+    
         fetchMovies();
     }, []);
-
+    
     console.log(movies);
 
     return (
@@ -40,16 +41,12 @@ export default function Movie(){
                     </div>
                 </div>
                 <div className="grid-item col3">
-                    {movies.map((movie, index) => (
-                        <div key={index}>
-                            <p className="movieinfo title">{movie.title}</p>
-                            <p className="movieinfo director">{movie.director}</p>
-                            <p className="movieinfo studio">{movie.studio}</p>
-                            <p className="movieinfo genre">{movie.genre}</p>
-                            <p className="movieinfo cast">{movie.cast}</p>
-                            <p className="movieinfo description">{movie.description}</p>
-                        </div>
-                ))}
+                    <p className="movieinfo title">{movies[0]?.title}</p>
+                    <p className="movieinfo director">{movies[0]?.director}</p>
+                    <p className="movieinfo studio">{movies[0]?.studio}</p>
+                    <p className="movieinfo genre">{movies[0]?.genre}</p>
+                    <p className="movieinfo cast">{movies[0]?.cast}</p>
+                    <p className="movieinfo description">{movies[0]?.description}</p>
                 </div>
             </div>
         </main>
