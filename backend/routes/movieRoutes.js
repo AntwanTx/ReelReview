@@ -1,18 +1,28 @@
-const express = require('express');
-const router = express.Router();
-const Movie = require('../models/movieModel');
+// const express = require('express');
+// // const router = express.Router();
+// const movies = require("../data/moviedata");
+
+// Defines a route to send the movie data as a res
+// app.get('/api/movies', (req, res) => {
+//   res.json(movies);
+// });
+
+// const PORT = process.env.PORT || 3000;
+// app.listen(PORT, () => {
+//   console.log(`Server is listening on port ${PORT}`);
+// });
 
 // Fetch all movies hey just a test
-router.get('/movies', async (req, res) => {
-  try {
-    const movies = await Movie.find();
-    res.json(movies);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
+// router.get('/movies', async (req, res) => {
+//   try {
+//     const movies = await Movie.find();
+//     res.json(movies);
+//   } catch (error) {
+//     res.status(500).json({ message: error.message });
+//   }
+// });
 
-module.exports = router;
+// module.exports = router;
 
 
 // Aaron...This is what I found for Creating, Updating, and Deleting Movie Reviews. Not sure how correct it is. Please take a look. 
