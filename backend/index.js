@@ -65,8 +65,9 @@ app.delete("/comment/:id", (req, res) => {
   })
 })
 
-
-
+app.get('/api/movies', (req, res) => {
+  res.json(moviedata);
+});
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
