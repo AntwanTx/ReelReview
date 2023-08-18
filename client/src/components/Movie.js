@@ -1,20 +1,27 @@
 import React, { useState, useEffect } from "react";
 import NavBar from "./NavBar";
-import { useParams } from "react-router-dom";
-
 
 import barbie from "../movie-posters/barbie.jpg";
 
 export default function Movie(){
-    const [moviedata] = useParams;
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
-        fetch(".backend/moviedata")
-        .then(response => response.json())
-        .then(data => setMovies(data))
-        .catch(error => console.error("Error fetching data", error));
+        async function fetchMovies(){
+            try {
+                const response = await fetch('/api/movies');
+                console.log('Response status:', response.status);
+                const data = await response.json();
+                console.log('Fetched data:', data);
+                setMovies(data);
+            } catch (error) {
+                 console.error("Error fetching data", error)
+            }
+        }
+        fetchMovies();
     }, []);
+
+    console.log(movies);
 
     return (
         <main className="movie">
