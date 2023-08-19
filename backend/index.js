@@ -3,6 +3,7 @@ const express = require("express");
 const Comment = require("./src/models/comment");
 const port = process.env.PORT || 4000;
 
+const moviedata = require("../data/moviedata");
 
 // middleware
 const app = express();
