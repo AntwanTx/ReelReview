@@ -9,9 +9,6 @@ const app = express();
 app.use(cors());
 app.use(express.json()); // This should come before defining routes
 
-// // Database connection
-// mongoose.connect("mongodb+srv://reelreview:Jj4Vrsk6JQr6Y87c@cluster0.4hnwy2r.mongodb.net/?retryWrites=true&w=majority")
-
 app.get("/", (req, res) => {
   res.send("Hello World!");
 })
@@ -21,16 +18,6 @@ app.post('/submit', async (req, res) => {
   const { name, comment, rating, selectedMovie} = req.body;
   const commentDoc = await Comment.create({name, comment, rating, selectedMovie});
   res.json(commentDoc);
-
-  
-    // const comment = new Comment(req.body);
-    // try {
-    //    await comment.save();
-    //    res.status(201).send(comment);
-    // } catch (error) {
-    //   res.status(400).send(error);
-    // }
-    // res.send('POST request received');
   });
 
 // get all comments
