@@ -12,52 +12,28 @@ import spiderman from "../movie-posters/spiderman.jpg";
 import parasite from "../movie-posters/parasite.jpg";
 import psycho from "../movie-posters/american-psycho.jpg";
 
+const imagePaths = [avengers, barbie, knives, starwars, batman, spiderman, parasite, psycho];
+const filmlist = ["avengers", "barbie", "knives-out", "starwars", "batman", "spiderman", "parasite", "american-psycho"];
 
-export default function HomePage(){
-    return(
+export default function HomePage() {
+    function formatFilmTitle(title) {
+        const words = title.split('-');
+        const formattedWords = words.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+        return formattedWords.join(' ');
+      }
+    return (
         <main className="home">
             <NavBar />
             <div className="grid-container">
-                    <div className="grid-item homefilm avengers">
-                        <img src={avengers} alt="Poster for Avengers."></img>
-                        <Link className="link" to="/avengers"><h3>Avengers</h3></Link>
+                {filmlist.map((film, index) => (
+                    <div className={`grid-item homefilm ${film}`} key={index}>
+                          <img src={imagePaths[index]} alt={`Poster for ${film}.`} />
+                        <Link className="link" to={`/${film}`}>
+                        <h3>{formatFilmTitle(film)}</h3>
+                        </Link>
                     </div>
-
-                    <div className="grid-item homefilm barbie">
-                        <img src={barbie} alt="Poster for Barbie."></img>
-                        <Link className="link" to="/barbie"><h3>Barbie</h3></Link>
-                    </div>
-
-                    <div className="grid-item homefilm knives">
-                        <img src={knives} alt="Poster for Knives Out."></img>
-                        <Link className="link" to="/knivesout"><h3>Knives Out</h3></Link>
-                    </div>
-
-                    <div className="grid-item homefilm starwars">
-                        <img src={starwars} alt="Poster for Star Wars: A New Hope."></img>
-                        <Link className="link" to="/starwars"><h3>Star Wars: A New Hope</h3></Link>
-                    </div>
-
-                    <div className="grid-item homefilm batman">
-                        <img src={batman} alt="Poster for Batman: The Dark Knight."></img>
-                        <Link className="link" to="/batman"><h3>Batman: The Dark Knight</h3></Link>
-                    </div>
-
-                    <div className="grid-item homefilm spiderman">
-                        <img src={spiderman} alt="Poster for Spiderman: No Way Home."></img>
-                        <Link className="link" to="/spiderman"><h3>Spiderman: No Way Home</h3></Link>
-                    </div>
-
-                    <div className="grid-item homefilm parasite">
-                        <img src={parasite} alt="Poster for Parasite."></img>
-                        <Link className="link" to="/parasite"><h3>Parasite</h3></Link>
-                    </div>
-
-                    <div className="grid-item homefilm psycho">
-                        <img src={psycho} alt="Poster for American Psycho."></img>
-                        <Link className="link" to="/americanpsycho"><h3>American Psycho</h3></Link>
-                </div>
+                ))}
             </div>
         </main>
     );
-};
+}
