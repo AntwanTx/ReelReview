@@ -20,7 +20,7 @@ app.post('/submit', async (req, res) => {
        await comment.save();
        res.status(201).send(comment);
     } catch (error) {
-      res.status(500).send(error);
+      res.status(400).send(error);
     }
     res.send('POST request received');
   });
@@ -33,7 +33,7 @@ app.get("/comment",async (req, res) => {
     const comments = await Comment.find();
     res.status(200).send(comments);
   } catch (error) {
-    res.status(500).send(error);
+    res.status(400).send(error);
   }
     
   })
@@ -43,7 +43,8 @@ app.get("/comment/:id", (req, res) => {
   Comment.findById(req.params.id).then((comment) => {
     res.send(comment);
   }).catch((error) => {
-    res.status(500).send(error);
+    res.status(400).json({'error':'The comment does not exist.'});
+    // res.status(400).send(error);
   })
 });
 
@@ -52,7 +53,7 @@ app.put("/comment/:id", (req, res) => {
   Comment.findByIdAndUpdate(req.params.id, req.body).then((comment) => {
     res.send(comment);
   }).catch((error) => {
-    res.status(500).send(error);
+    res.status(400).send(error);
   })
 })
 
@@ -61,7 +62,7 @@ app.delete("/comment/:id", (req, res) => {
   Comment.findByIdAndDelete(req.params.id).then((comment) => {
     res.send(comment);
   }).catch((error) => {
-    res.status(500).send(error);
+    res.status(400).send(error);
   })
 })
 
