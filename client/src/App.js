@@ -22,7 +22,7 @@ function App() {
             <Route path="/scifi" element={<SciFi />} />
             <Route path="/drama" element={<Drama />} />
             <Route path="/comedy" element={<Comedy />} />
-            <Route path="/barbie" element={<Movie />} />
+            <Route path="/:film" element={<Movie />} />
             <Route path="/SelectedMovie" element={<SelectedMovie />} />
       </Routes>
     </Router>

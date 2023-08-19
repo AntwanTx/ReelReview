@@ -1,36 +1,32 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import NavBar from "./NavBar";
 
-import barbie from "../movie-posters/barbie.jpg";
-
-export default function Movie(){
-    const [movies, setMovies] = useState([]);
+export default function Movie() {
+    const [movie, setMovie] = useState({});
+    const { film } = useParams();
 
     useEffect(() => {
-        async function fetchMovies() {
+        async function fetchMovie() {
             try {
-                const response = await fetch('/api/movies');
-                console.log('Response status:', response.status);
+                const response = await fetch(`/api/movies/${film}`);
                 const data = await response.json();
-                console.log('Fetched data:', data);
-                setMovies(data);
+                setMovie(data);
             } catch (error) {
-                console.error('Error fetching data', error);
+                console.error("Error fetching data", error);
             }
         }
-    
-        fetchMovies();
-    }, []);
-    
-    console.log(movies);
+        fetchMovie();
+    }, [film]);
 
     return (
         <main className="movie">
             <NavBar />
             <div className="grid-container">
                 <div className="grid-item col1">
-                    <img src={barbie} alt="Poster for the barbie movie"></img>
+                    <img src={movie.poster} alt={`Poster for ${movie.title} movie`} />
                 </div>
+
                 <div className="grid-item col2">
                     <div className="review">
                         <p className="username">Username</p>
@@ -40,15 +36,19 @@ export default function Movie(){
                         <button className="delete">Delete</button>
                     </div>
                 </div>
+
                 <div className="grid-item col3">
-                    <p className="movieinfo title">{movies[0]?.title}</p>
-                    <p className="movieinfo director">{movies[0]?.director}</p>
-                    <p className="movieinfo studio">{movies[0]?.studio}</p>
-                    <p className="movieinfo genre">{movies[0]?.genre}</p>
-                    <p className="movieinfo cast">{movies[0]?.cast}</p>
-                    <p className="movieinfo description">{movies[0]?.description}</p>
+                    <p className="movieinfo title">{movie.title}</p>
+                    <p className="movieinfo director">{movie.director}</p>
+                    <p className="movieinfo studio">{movie.studio}</p>
+                    <p className="movieinfo genre">{movie.genre}</p>
+                    <p className="movieinfo cast">{movie.cast}</p>
+                    <p className="movieinfo description">{movie.description}</p>
                 </div>
             </div>
         </main>
     );
 }
+
+
+
