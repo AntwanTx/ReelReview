@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavBar from './NavBar';
 
 
@@ -7,6 +7,9 @@ const ReviewForm = ({ onSubmit, movieList }) => {
     const [name, setName] = useState('');
     const [comment, setComment] = useState('');
     const [rating, setRating] = useState(0);
+
+    const [reviews, setReviews] = useState([]);
+
     async function handleSubmit(ev) {
         ev.preventDefault();
         await fetch("http://localhost:4000/submit", {
@@ -78,77 +81,3 @@ const ReviewForm = ({ onSubmit, movieList }) => {
             };
             
             export default ReviewForm;
-
-
-
-
-
-
-
-
-
-
-
-
-            
-                        // import React, { useState } from 'react';
-                        // import { useHistory } from 'react-router-dom';
-                        // import NavBar from './NavBar';
-                        
-                        // function ReviewForm() {
-                        //   const history = useHistory();
-                        
-                        //   const [name, setName] = useState('');
-                        //   const [comment, setComment] = useState('');
-                        //   const [selectedMovie, setSelectedMovie] = useState('');
-                        //   const [rating, setRating] = useState(0);
-                        
-                        //   const movieList = [...]; // Define your movie list here
-                        
-                        //   const handleSubmit = async (ev) => {
-                        //     e.preventDefault();
-                        
-                        //     const formData = {
-                        //       name: name,
-                        //       comment: comment,
-                        //       selectedMovie: selectedMovie,
-                        //       rating: rating
-                        //     };
-                        
-                        //     try {
-                        //       const response = await fetch('http://localhost:4000/submit', {
-                        //         // Use the backend URL with port 4000
-                        //         method: 'POST',
-                        //         headers: {
-                        //           'Content-Type': 'application/json'
-                        //         },
-                        //         body: JSON.stringify(formData)
-                        //       });
-                        
-                        //       if (response.ok) {
-                        //         // Handle successful submission, maybe redirect or show a success message
-                        //         history.push('/success-route'); // Replace with your desired route
-                        //       } else {
-                        //         // Handle error response
-                        //         console.error('Error submitting the form');
-                        //       }
-                        //     } catch (error) {
-                        //       console.error('Error submitting the form', error);
-                        //     }
-                        //   };
-                        
-                        //   return (
-                        //     <main className="reviewform">
-                        //       <NavBar />
-                        
-                        //       <h2>Write a Review</h2>
-                        //       <form onSubmit={handleSubmit}>
-                        //         {/* ... Form input elements ... */}
-                        //       </form>
-                        //     </main>
-                        //   );
-                        // }
-                        
-                        // export default ReviewForm;
-
-
