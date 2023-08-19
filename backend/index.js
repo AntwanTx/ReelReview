@@ -4,8 +4,6 @@ const express = require("express");
 const port = process.env.PORT || 4000;
 const cors = require("cors");
 
-const moviedata = require("./data/moviedata");
-
 // middleware
 const app = express();
 app.use(express.json());
@@ -14,10 +12,6 @@ app.use(cors());
 app.get("/", (req, res) => {
   res.send("Hello World!");
 })
-
-app.get('/api/movies', (req, res) => {
-  res.json(moviedata);
-});
 
 // create a new comment
 
