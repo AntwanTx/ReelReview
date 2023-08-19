@@ -7,10 +7,14 @@ const ReviewForm = ({ onSubmit, movieList }) => {
     const [name, setName] = useState('');
     const [comment, setComment] = useState('');
     const [rating, setRating] = useState(0);
-  
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(name, comment, rating, selectedMovie);
+    async function handleSubmit(ev) {
+        ev.preventDefault();
+        await fetch("http://localhost:4000/submit", {
+          method: "POST",
+          body: JSON.stringify({ name, comment, rating, selectedMovie}),
+          headers: {"Content-Type": "application/json"},
+        })
+
         onSubmit({ name, comment, rating, selectedMovie });
         setSelectedMovie(null);
         setName('');
@@ -31,17 +35,17 @@ const ReviewForm = ({ onSubmit, movieList }) => {
         
                 <div className="formitem name">
                   <label>Name:</label><br></br>
-                  <input placeholder="username" type="text" value={name} onChange={(e) => setName(e.target.value)} required />
+                  <input placeholder="username" type="text" value={name} onChange={(ev) => setName(ev.target.value)} required />
                 </div>
         
                 <div className="formitem comment">
                   <label>Comment:</label><br></br>
-                  <textarea placeholder="Write your review here." value={comment} onChange={(e) => setComment(e.target.value)} required />
+                  <textarea placeholder="Write your review here." value={comment} onChange={(ev) => setComment(ev.target.value)} required />
                 </div>
         
                 <div className="formitem moviedropdown">
                   <label>Select a Movie:</label><br></br>
-                  <select value={selectedMovie} onChange={(e) => setSelectedMovie(e.target.value)}>
+                  <select value={selectedMovie} onChange={(ev) => setSelectedMovie(ev.target.value)}>
                     <option value="">Select a movie</option>
                     {movieList.map((movie, index) => (
                         <option key={index} value={movie.title}>
@@ -101,7 +105,7 @@ const ReviewForm = ({ onSubmit, movieList }) => {
                         
                         //   const movieList = [...]; // Define your movie list here
                         
-                        //   const handleSubmit = async (e) => {
+                        //   const handleSubmit = async (ev) => {
                         //     e.preventDefault();
                         
                         //     const formData = {
