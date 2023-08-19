@@ -1,7 +1,6 @@
+import React, { useEffect, useState } from 'react';
 
-import React from 'react';
-
-const ReviewList = ({ reviews, onDeleteReview }) => {
+const ReviewList = ({ reviews, onDeleteReview, onUpdateReview}) => {
 
   const movieList = [
     // Define your movie list with their respective picture URLs
@@ -16,11 +15,20 @@ const ReviewList = ({ reviews, onDeleteReview }) => {
     // Add more movies as needed
   ];
 
+  const [fetchedReviews, setFetchedReviews] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:4000/comment')
+      .then(response => response.json())
+      .then(data => setFetchedReviews(data))
+      .catch(error => console.error('Error fetching reviews:', error));
+  }, []);
+
   return (
     <div>
       <h2>Reviews</h2>
       <ul>
-        {reviews.map((review, index) => (
+        {fetchedReviews.map((review, index) => (
           <li key={index}>
             <strong>{review.name}</strong>
             <p>{review.comment}</p>
@@ -32,6 +40,7 @@ const ReviewList = ({ reviews, onDeleteReview }) => {
               ))}
             </div>
             <div>{"⭐".repeat(review.rating)}</div>
+            <button onClick={() => onUpdateReview(index)}>Update</button>
             <button onClick={() => onDeleteReview(index)}>Delete</button>
           </li>
         ))}
