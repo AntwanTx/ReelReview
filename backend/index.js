@@ -1,32 +1,37 @@
-// require("./src/db/mongoose");
-const express = require("express");
-// const Comment = require("./src/models/comment");
+require("./src/db/mongoose");
 const port = process.env.PORT || 4000;
+const express = require("express");
 const cors = require("cors");
-
-// middleware
+const Comment = require("./src/models/comment");
 const app = express();
-app.use(express.json());
+
+// Middleware
 app.use(cors());
+app.use(express.json()); // This should come before defining routes
+
+// // Database connection
+// mongoose.connect("mongodb+srv://reelreview:Jj4Vrsk6JQr6Y87c@cluster0.4hnwy2r.mongodb.net/?retryWrites=true&w=majority")
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
 })
-
+ 
 // create a new comment
-
 app.post('/submit', async (req, res) => {
-    const comment = new Comment(req.body);
-    try {
-       await comment.save();
-       res.status(201).send(comment);
-    } catch (error) {
-      res.status(400).send(error);
-    }
-    res.send('POST request received');
+  const { name, comment, rating, selectedMovie} = req.body;
+  const commentDoc = await Comment.create({name, comment, rating, selectedMovie});
+  res.json(commentDoc);
+
+  
+    // const comment = new Comment(req.body);
+    // try {
+    //    await comment.save();
+    //    res.status(201).send(comment);
+    // } catch (error) {
+    //   res.status(400).send(error);
+    // }
+    // res.send('POST request received');
   });
-
-
 
 // get all comments
 app.get("/comment",async (req, res) => {
