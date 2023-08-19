@@ -9,9 +9,6 @@ import Drama from "./components/Drama";
 import Comedy from "./components/Comedy";
 import SelectedMovie from "./components/SelectedMovie";
 
-const filmlist = ["avengers", "barbie", "knivesout", "starwars", "batman", "spiderman", "parasite", "americanpsycho"];
-
-
 function App() {
   return (
     <div className="App">
